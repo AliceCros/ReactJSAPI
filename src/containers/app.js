@@ -5,6 +5,7 @@ import {createBrowserHistory} from "history";
 
 import HomeView from '../views/home-view';
 import Blog from '../views/blog';
+import globalNavbar from '../components/global-navbar';
 import SearchBar from '../components/search-bar';
 
 let history = createBrowserHistory();
@@ -16,13 +17,15 @@ class App extends Component {
             return (
             <Router history={history}>
             <div>
+                <header>
+                    <Route path="/" component={globalNavbar} />
+                </header>
                 <div className="search_bar">      
                 <SearchBar />
                 </div>
-
                 <main>
-                    <Route exact path="/" component={HomeView} />
-                    <Route exact path="/" component={Blog} />
+                    <Route exact path="/homeview" component={HomeView} />
+                    <Route exact path="/blog" component={Blog} />
                 </main>    
             
                 </div>
